@@ -1,0 +1,23 @@
+name: Multi-Jobs Workflow
+
+on:
+    workflow_dispatch:
+
+jobs:
+    multi_jobs_workflow:
+        runs-on: windows-latest
+        steps:
+            - name: first_step
+              run: |
+                    echo "This is the first step of the multi-jobs workflow."
+                    echo "It runs on Windows."
+
+    multi_jobs_workflow_2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: second_step
+              run: |
+                    echo "This is the second step of the multi-jobs workflow."
+                    echo "It runs on Ubuntu."
+            
+        
