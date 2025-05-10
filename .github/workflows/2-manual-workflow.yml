@@ -1,0 +1,13 @@
+name: Manual Workflow
+
+on: 
+    workflow_dispatch:
+jobs:
+    manual-workflow:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Manual step
+              run: |
+                echo "This is a manual workflow."
+                echo "You can trigger it manually from the Actions tab."      
