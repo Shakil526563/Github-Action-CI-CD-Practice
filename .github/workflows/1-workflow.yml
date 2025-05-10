@@ -1,15 +1,16 @@
-name: basic workflow
+name: First Workflow
 
 on:
   push:
     branches:
-      -main
+      - main
 
 jobs:
   first-workflow:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+
     steps:
-      - name: first-step
+      - name: First step
         run: |
-          echo "Hello world"
-          
+          echo "Hello, World!"
+          echo "Hello Again!"
