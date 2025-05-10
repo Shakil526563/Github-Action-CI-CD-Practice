@@ -1,0 +1,32 @@
+name: Dependency Workflow
+
+on:
+    workflow_dispatch:
+
+jobs:
+    First_dependency-workflow:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: First Dependency step
+              run: |
+                echo "This is a dependency workflow."
+                echo "It runs on Ubuntu."
+
+    Second_Dependency_workflow:
+        runs-on: ubuntu-latest
+        needs: [First_dependency-workflow] # This job depends on the first job
+        steps:
+            - name: Second Dependency step
+              run: |
+                echo "This is the second dependency step."
+                echo "It runs after the first step."
+
+    Third_Dependency_workflow:
+        runs-on: ubuntu-latest        
+        needs: [First_dependency-workflow,Second_Dependency_workflow]   
+        steps:
+            - name: Third Dependency step
+              run: |
+                echo "This is the third dependency step."
+                echo "It runs after the first and second steps."         
