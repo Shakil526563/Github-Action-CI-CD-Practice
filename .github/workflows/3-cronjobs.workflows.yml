@@ -3,7 +3,7 @@ name: Cron Jobs Workflow
 on:
     schedule:
         - cron: '*/2 * * * *'
-2
+
 jobs:
     cron-jobs:
         runs-on: ubuntu-latest
