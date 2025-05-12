@@ -1,0 +1,30 @@
+name: Value Pass Output Workflow
+on:
+    workflow_dispatch:
+        inputs:
+            name:
+                description: 'Enter your name'
+                required: true
+                default: 'Unnamed'
+       
+
+jobs:
+    value_pass_output:
+        runs-on: ubuntu-latest
+        outputs:
+            greating_message: ${{ steps.create_message.outputs.message }}
+
+        steps:
+            - name: Creating_masseage
+              id: create_message
+              run: |
+                    echo "message=Hello ${{github.event.inputs.name}}!" >> $GITHUB_OUTPUT
+                 
+
+    Printing_message:
+        runs-on: ubuntu-latest
+        needs: value_pass_output
+        steps:
+            - name: Print_message
+              run: |
+                    echo "My name is ${{needs.value_pass_output.outputs.greating_message}}"
