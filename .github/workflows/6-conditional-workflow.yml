@@ -1,0 +1,17 @@
+name: Conditional Workflow
+
+on:
+    push:
+        paths:
+            - 'backend/**'
+
+
+
+jobs:
+    conditional_jobs:
+        runs-on: ubuntu-latest
+        steps:
+            - name: conditional_step
+              run: |
+                    echo "This step runs only when there are changes in the backend directory."
+                    echo "It runs on Ubuntu."
